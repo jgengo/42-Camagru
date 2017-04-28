@@ -1,5 +1,7 @@
 <?php
 
+
+
 function get_content_from($folder)
 {
 	return array_map( 
@@ -24,10 +26,9 @@ function hash_it($plain)
 	return (hash("SHA256", $plain));
 }
 
-function stats_taken()
+function stats_taken($DB_DSN, $DB_USER, $DB_PASSWORD)
 {
 	session_start();
-	require_once('database.php');
 	try
 	{
 		$db = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);

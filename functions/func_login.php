@@ -15,13 +15,14 @@ if (!isset($error))
 		$db = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // to get an exception when caught an error :)
 	} catch (PDOException $e) {
-	    print "Erreur !: " . $e->getMessage() . "<br/>";
-	    die();
+	    $error = "Erreur !: " . $e->getMessage();
 	}
-
-	$count_login = $db->prepare("SELECT COUNT(*) FROM camagru_jgengo.user WHERE login = :login");
-	$count_login->bindValue(':login', $_POST['login']);
-	$count_login->execute();
+	if (!isset($error))
+	{
+		$count_login = $db->prepare("SELECT COUNT(*) FROM camagru_jgengo.user WHERE login = :login");
+		$count_login->bindValue(':login', $_POST['login']);
+		$count_login->execute();
+	}
 	if (!isset($error) && !($count_login->fetchColumn() > 0))
 		$error = "This username does not exist";
 

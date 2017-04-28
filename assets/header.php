@@ -5,7 +5,7 @@
 		<?php 
 		if (is_logged()) {
 			echo "<li><a href='?p=cam'>Take a pic</a></li>";
-			echo "<li><a href='#'>Gallery</a></li>";
+			echo "<li><a href='?p=gallery'>Gallery</a></li>";
 		}
 		if (is_admin())
 		{

@@ -15,7 +15,7 @@
 <input id='register' type='submit' value='Join us' onClick="window.location.replace('?p=register');" />
 <?php } else { ?>
 <h2 class='title'>Stats</h2>
-<?php $arr = stats_taken(); ?>
+<?php $arr = stats_taken($DB_DSN, $DB_USER, $DB_PASSWORD); ?>
 <div class='stats'>
 	<p><span><?php echo $arr[0]; ?></span> photos taken</p>
 	<p><span><?php echo $arr[1]; ?></span> comments written</p>

@@ -1,7 +1,6 @@
 <?php
 
 require_once('../config/database.php');
-
 session_start();
 
 $name = time().".png";
